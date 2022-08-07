@@ -7,7 +7,8 @@
 #include "Rifle.generated.h"
 
 /**
- * 
+ * instantaneous type weapon that works on linetrace principle
+ * assault rifles, machine guns
  */
 UCLASS()
 class SYNTHWAVE001_API ARifle : public AWeapon

@@ -7,7 +7,8 @@
 #include "LauncherWeapon.generated.h"
 
 /**
- * 
+ * launcher type shooting weapon
+ * spawns projectiles (grenades, rockets, plasma bolts, etc)
  */
 UCLASS()
 class SYNTHWAVE001_API ALauncherWeapon : public AWeapon

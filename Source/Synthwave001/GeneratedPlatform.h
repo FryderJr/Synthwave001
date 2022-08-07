@@ -7,7 +7,9 @@
 #include "GeneratedPlatform.generated.h"
 
 class ALaunchPad;
-
+/*
+* platform class
+*/
 UCLASS()
 class SYNTHWAVE001_API AGeneratedPlatform : public AActor
 {
@@ -21,6 +23,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Spawn enemies, bonuses, obstacles and launchpad
+	// called from the platform blueprint when player pawn enters overlap-zone around platform
 	UFUNCTION(BlueprintCallable, Category = Platform)
 	void PopulatePlatform();
 
@@ -30,6 +34,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = Platform)
 	TSubclassOf<USceneComponent> SpawnLocationClass;
 
+	// Array of all possible actors that can be spawned on the platform except for launchpad
 	UPROPERTY(EditDefaultsOnly, Category = Platform)
 	TArray<TSubclassOf<AActor>> SpawnTypeClasses;
 
@@ -48,10 +53,12 @@ public:
 
 	TArray<AActor*> GeneratedActors;
 
+	// Scene component representing platform start, where player lands after jumping by the launchpad
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Platform)
 	USceneComponent* LevelStart;
 
 	FVector GetLevelStartPosition();
 
+	// Here next platfrom spawn point generated
 	FVector GetNextRandomPoint();
 };

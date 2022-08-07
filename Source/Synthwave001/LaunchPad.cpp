@@ -3,6 +3,7 @@
 
 #include "LaunchPad.h"
 #include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "JumpFromPlatfrom.h"
 
 // Sets default values
@@ -33,6 +34,10 @@ void ALaunchPad::HandleBoxOverlap(AActor* OverlappedActor, AActor* OtherActor)
 	if (!OtherActor->GetClass()->ImplementsInterface(UJumpFromPlatfrom::StaticClass()))
 	{
 		return;
+	}
+	if (LaunchSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, LaunchSound, GetActorLocation());
 	}
 	IJumpFromPlatfrom::Execute_JumpTo(OtherActor, Destination->GetComponentLocation(), 4.0f);
 }

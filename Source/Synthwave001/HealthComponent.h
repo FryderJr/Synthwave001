@@ -8,6 +8,9 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams(FOnHealthChangeSignature, UHealthComponent*, HealthComp, float, Health, float, HealthDelta, const class UDamageType*, DamageType, class AController*, InstigatedBy, AActor*, DamageCauser);
 
+/*
+* Health component is used for handling damage/heal and friend or foe logic
+*/
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class SYNTHWAVE001_API UHealthComponent : public UActorComponent
 {
@@ -17,6 +20,9 @@ public:
 	// Sets default values for this component's properties
 	UHealthComponent();
 
+	// Crucial element of friend or foe system
+	// friends have the same team
+	// foes have different teams
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = HealthComponent)
 	uint8 Team;
 
@@ -37,6 +43,8 @@ protected:
 
 public:
 
+	// blueprint assiagnable event
+	// called when takes damage or heals
 	UPROPERTY(BlueprintAssignable, Category = Events)
 	FOnHealthChangeSignature OnHealthChanged;
 

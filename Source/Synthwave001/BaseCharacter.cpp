@@ -44,6 +44,7 @@ void ABaseCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// binding health component OnHealthChanged with character OnHealthChanged
 	HealthComponent->OnHealthChanged.AddDynamic(this, &ABaseCharacter::OnHealthChanged);
 
 	FActorSpawnParameters SpawnParams;
@@ -60,6 +61,7 @@ void ABaseCharacter::BeginPlay()
 
 void ABaseCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	// make sure there character weapon is also destroyed
 	CurrentWeapon->SetLifeSpan(1.0f);
 	Super::EndPlay(EndPlayReason);
 }
@@ -96,6 +98,7 @@ void ABaseCharacter::JumpTo_Implementation(FVector Destination, float Duration)
 
 void ABaseCharacter::OnHealthChanged(UHealthComponent* HealthComp, float Health, float HealthDelta, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
 {
+	// implementing character material pulse when he takes damage
 	if (MatInst == nullptr)
 	{
 		MatInst = GetMesh()->CreateAndSetMaterialInstanceDynamicFromMaterial(0, GetMesh()->GetMaterial(0));
@@ -104,6 +107,8 @@ void ABaseCharacter::OnHealthChanged(UHealthComponent* HealthComp, float Health,
 	{
 		MatInst->SetScalarParameterValue(MaterialPulseParameterName, GetWorld()->GetTimeSeconds());
 	}
+
+	// character death logic impleementation
 	if (Health <= 0.0f && !bDied)
 	{
 		bDied = true;
@@ -121,6 +126,9 @@ void ABaseCharacter::OnHealthChanged(UHealthComponent* HealthComp, float Health,
 	}
 }
 
+/*
+* deactivate path following component due to interference in jumping mechanic
+*/
 void ABaseCharacter::Falling()
 {
 	Super::Falling();
@@ -131,6 +139,9 @@ void ABaseCharacter::Falling()
 	}
 }
 
+/*
+* activate path following component when character lands
+*/
 void ABaseCharacter::Landed(const FHitResult& Hit)
 {
 	Super::Landed(Hit);

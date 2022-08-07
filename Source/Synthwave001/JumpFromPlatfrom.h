@@ -14,7 +14,7 @@ class UJumpFromPlatfrom : public UInterface
 };
 
 /**
- * 
+ * juump between platforms interface
  */
 class SYNTHWAVE001_API IJumpFromPlatfrom
 {

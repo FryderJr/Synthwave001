@@ -20,6 +20,7 @@ void UHealthComponent::BeginPlay()
 
 	Health = DefaultHealth;
 
+	// binding owner actor's OnTakeAnyDamage with our method HandleTakeAnyDamage
 	AActor* MyOwner = GetOwner();
 	if (MyOwner)
 	{

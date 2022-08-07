@@ -36,6 +36,10 @@ void AWeapon::PlayMuzzle()
 	{
 		UGameplayStatics::SpawnEmitterAttached(MuzzleEffect, MeshComponent, MuzzleSocketName);
 	}
+	if (ShootSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, ShootSound, MeshComponent->GetSocketLocation(MuzzleSocketName));
+	}
 }
 
 // Called every frame

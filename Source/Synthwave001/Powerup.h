@@ -8,6 +8,12 @@
 
 class URotatingMovementComponent;
 
+/*
+* base class for all powerup-bonuses
+* all powerups can be of one of the following types:
+* instantaneous - effect applied on activation
+* continuos - effect applied during period of time from activation to expiration
+*/
 UCLASS()
 class SYNTHWAVE001_API APowerup : public AActor
 {
@@ -32,9 +38,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components)
 	USceneComponent* SceneComponent;
 
+	// Mesh component used for visualization of power up in the game
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components)
 	UStaticMeshComponent* MeshComponent;
 
+	// Rotating move component adds nice rotating effect to our powerup
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components)
 	URotatingMovementComponent* MoveComponent;
 

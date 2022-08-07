@@ -7,7 +7,7 @@
 #include "SynthwaveGameInstance.generated.h"
 
 /**
- * 
+ * game instace stores probabilities of spawn for various types of actors, that can be placed on platform (enemies, bonuses, obstacles)
  */
 UCLASS()
 class SYNTHWAVE001_API USynthwaveGameInstance : public UGameInstance
@@ -16,12 +16,15 @@ class SYNTHWAVE001_API USynthwaveGameInstance : public UGameInstance
 
 public:
 
+	// shooting enemy placement probability
 	UPROPERTY(BlueprintReadWrite, Category = Difficulty)
 	int32 LongRangeEnemyPossibility = 15;
 
+	// melee enemy placement probability
 	UPROPERTY(BlueprintReadWrite, Category = Difficulty)
 	int32 MeleeEnemyPossibility = 45;
 
+	// bonuses placement probability
 	UPROPERTY(BlueprintReadWrite, Category = Difficulty)
 	int32 BonusPossibility = 60;
 

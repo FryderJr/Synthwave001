@@ -7,7 +7,8 @@
 #include "HealthPowerup.generated.h"
 
 /**
- * 
+ * instantaneous powerup
+ * adds 50 units of health to the character upon activation
  */
 UCLASS()
 class SYNTHWAVE001_API AHealthPowerup : public APowerup

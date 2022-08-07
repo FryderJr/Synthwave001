@@ -6,6 +6,10 @@
 #include "BaseCharacter.h"
 #include "Synthwave001Character.generated.h"
 
+/*
+* player character class
+* has camera, cameraboom and decal cursor
+*/
 UCLASS(Blueprintable)
 class ASynthwave001Character : public ABaseCharacter
 {
@@ -15,6 +19,7 @@ public:
 	ASynthwave001Character();
 
 	// Called every frame.
+	// handles cursor movement in the world
 	virtual void Tick(float DeltaSeconds) override;
 
 	/** Returns TopDownCameraComponent subobject **/

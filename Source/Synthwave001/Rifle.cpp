@@ -63,5 +63,4 @@ void ARifle::PlayEffects(FVector TrailEnd)
 			Trail->SetVectorParameter(TrailTargetName, TrailEnd);
 		}
 	}
-
 }

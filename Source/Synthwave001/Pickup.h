@@ -10,6 +10,9 @@ class USphereComponent;
 class UDecalComponent;
 class APowerup;
 
+/*
+* pickups handle powerup placement in the world and its respawn
+*/
 UCLASS()
 class SYNTHWAVE001_API APickup : public AActor
 {

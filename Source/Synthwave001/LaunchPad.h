@@ -7,7 +7,9 @@
 #include "LaunchPad.generated.h"
 
 class UBoxComponent;
-
+/*
+* launchpad actor placed on each platform enables movement from platform to platform both for player and enemy
+*/
 UCLASS()
 class SYNTHWAVE001_API ALaunchPad : public AActor
 {
@@ -26,6 +28,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components)
 	UStaticMeshComponent* Pad;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Launchpad)
+	USoundWave* LaunchSound;
 
 	UFUNCTION()
 	void HandleBoxOverlap(AActor* OverlappedActor, AActor* OtherActor);

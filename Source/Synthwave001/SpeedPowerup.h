@@ -7,7 +7,9 @@
 #include "SpeedPowerup.generated.h"
 
 /**
- * 
+ * continuos powerup
+ * multiplies character speed by the factor of 2 on activation
+ * divides character speed by the factor of 2 on expire (removes powerup effect)
  */
 UCLASS()
 class SYNTHWAVE001_API ASpeedPowerup : public APowerup

@@ -9,6 +9,9 @@
 class USphereComponent;
 class UProjectileMovementComponent;
 
+/*
+* projectile is spwaned by launcher weapon
+*/
 UCLASS()
 class SYNTHWAVE001_API AProjectile : public AActor
 {

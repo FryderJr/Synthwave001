@@ -28,6 +28,7 @@ void AGeneratedPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Spawn launchpad
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
@@ -58,6 +59,7 @@ void AGeneratedPlatform::PopulatePlatform()
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
+	// Game instance stores spawn probabilities for each spawn type
 	auto CurrentGameInstance = Cast<USynthwaveGameInstance>(GetGameInstance());
 
 	if (!CurrentGameInstance)
